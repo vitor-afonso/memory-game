@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <section id="body-area">
+
+        <div id="images">
+
+            <h1>Memory Game</h1>
+
+            <div id="group1">
+
+                <div class="cat-area g-area" onclick="show(this)">
+                    <img src="assets/images/cat.png" alt="#" class="cat">
+                </div>
+                <div class="lion-area g-area" onclick="show(this)">
+                    <img src="assets/images/lion.png" alt="#" class="lion">
+                </div>
+                <div class="dog-area g-area" onclick="show(this)">
+                    <img src="assets/images/dog.png" alt="#" class="dog">
+                </div>
+                
+                <div class="lion-area g-area" onclick="show(this)">
+                    <img src="assets/images/lion.png" alt="#" class="lion">
+                </div>
+                <div class="dog-area g-area" onclick="show(this)">
+                    <img src="assets/images/dog.png" alt="#" class="dog">
+                </div>
+                <div class="cat-area g-area" onclick="show(this)">
+                    <img src="assets/images/cat.png" alt="#" class="cat">
+                </div>
+
+            </div>
+
+            <div id="score">Score:<span id="scoreNum">0</span></div>
+            <div id="attempts">Failed Attempts:<span id="attemptNum">0</span></div>
+
+        </div>
+
+    </section>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
