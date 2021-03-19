@@ -34,7 +34,7 @@ section #images {
 #images .g-area {
     width: 150px;
     margin: 0 1px 1px 0;
-    background-color: rgba(0, 0, 255, 1);
+    background: rgba(0, 0, 255, 1);
 }
 
 #images .cat, 
