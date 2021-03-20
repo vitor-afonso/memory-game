@@ -1,14 +1,76 @@
 let num = 0;
-let picClass; 
-let picClass2;
 let picArea1;
 let picArea2;
 let pic1;
 let pic2;
+let picClass; 
+let picClass2;
+let lock = 0; /* contador para bloquear cliques*/
 let attempts = document.querySelector("#attemptNum");
 let score = document.querySelector("#scoreNum");
 let res = document.querySelector("#res"); 
-let lock = 0; /* contador para bloquear cliques*/
+
+let loc1 = Math.floor(Math.random() * 6);
+
+let loc2;
+let loc3;
+let loc4;
+let loc5;
+let loc6;
+
+if (loc1 == 0) {
+    loc2 = loc1 + 1;
+    loc3 = loc2 + 1;
+    loc4 = loc3 + 1;
+    loc5 = loc4 + 1;
+    loc6 = loc5 + 1;
+} else if (loc1 == 1) {
+    loc2 = loc1 + 1;
+    loc3 = loc2 + 1;
+    loc4 = loc3 + 1;
+    loc5 = loc4 + 1;
+    loc6 = loc5 - 5;
+} else if (loc1 == 2) {
+    loc2 = loc1 + 1;
+    loc3 = loc2 + 1;
+    loc4 = loc3 + 1;
+    loc5 = loc4 - 4;
+    loc6 = loc5 - 5;
+} else if (loc1 == 3) {
+    loc2 = loc1 + 1;
+    loc3 = loc2 + 1;
+    loc4 = loc3 - 3;
+    loc5 = loc4 - 1;
+    loc6 = loc5 - 1;
+} else if (loc1 == 4) {
+    loc2 = loc1 + 1;
+    loc3 = loc2 - 2;
+    loc4 = loc3 - 1;
+    loc5 = loc4 - 1;
+    loc6 = loc5 - 1;
+} else if (loc1 == 5) {
+    loc2 = loc1 - 1;
+    loc3 = loc2 - 1;
+    loc4 = loc3 - 1;
+    loc5 = loc4 - 1;
+    loc6 = loc5 - 1;
+}
+
+console.log(loc1);
+console.log(loc2);
+console.log(loc3);
+console.log(loc4);
+console.log(loc5);
+console.log(loc6);
+
+document.querySelector("#cat1").style.order = loc1;
+document.querySelector("#lion1").style.order = loc2;
+document.querySelector("#dog1").style.order = loc3;
+document.querySelector("#lion2").style.order = loc3;
+document.querySelector("#dog2").style.order = loc4;
+document.querySelector("#cat2").style.order = loc5;
+
+
 
 function show(x) {
 
@@ -19,8 +81,9 @@ function show(x) {
 
     let picArea = x;
     let pic = x.querySelector("img");
-    
     num++;
+    
+    
 
     if (num === 1) {
 
@@ -30,8 +93,6 @@ function show(x) {
         pic1.style.visibility = "visible";
         picClass = pic.getAttribute("class"); 
         
-        
-
         console.log(picClass);
         
     } else if (num === 2) {
