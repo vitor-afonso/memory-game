@@ -4,6 +4,7 @@
 body {
     width: 100%;
     margin: 0px auto;
+    font-family: sans-serif;
 }
 #body-area {
     width: 100%;
@@ -31,17 +32,18 @@ section #images {
     min-width: 320px;
     
 }
-#images .g-area {
+#group1 .g-area {
     width: 150px;
-    margin: 0 1px 1px 0;
+    margin: 0px 1px 1px 0px;
     background: rgba(0, 0, 255, 1);
 }
 
-#images .cat, 
-#images .dog, 
-#images .lion {
+#group1 .cat, 
+#group1 .dog, 
+#group1 .lion {
     visibility: hidden;
     width: 150px;
+    
 }
 
 @media (max-width: 452px) {
