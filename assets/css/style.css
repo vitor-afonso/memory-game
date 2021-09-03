@@ -33,34 +33,39 @@ section #images {
     
 }
 #group1 .g-area {
+    height: 150px;
     width: 150px;
     margin: 0px 1px 1px 0px;
     background: rgba(0, 0, 255, 1);
 }
 
-#group1 .cat, 
-#group1 .dog, 
-#group1 .lion {
+#group1 .hided {
     visibility: hidden;
+    height: 150px;
     width: 150px;
-    
 }
-#group1 
+#group1 {
+    @media (max-width: 452px) {
+
+        #images #group1 {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            min-width: 320px;
+            justify-content: center;
+        }
+    } 
 }
-@media (max-width: 452px) {
 
-    #images #group1 {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 50px;
-        min-width: 320px;
-        justify-content: center;
-    }
-} 
 
-/*#images .cat {
+.makeVisible {
     visibility: visible;
+    height: 150px;
+    width: 150px;
 }
-#images .cat-area {
-    background-color: rgba(0, 0, 255, 0);
-}*/
+
+.hidded {
+    visibility: hidden;
+    height: 150px;
+    width: 150px;
+}

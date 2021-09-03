@@ -1,151 +1,39 @@
-let num = 0;
-let picArea1;
-let picArea2;
-let pic1;
-let pic2;
-let picClass; 
-let picClass2;
-let lock = 0; /* contador para bloquear cliques*/
-let attempts = document.querySelector("#attemptNum");
-let score = document.querySelector("#scoreNum");
-let res = document.querySelector("#res"); 
-
-let loc1 = Math.floor(Math.random() * 6);
-
-let loc2;
-let loc3;
-let loc4;
-let loc5;
-let loc6;
-
-if (loc1 == 0) {
-    loc2 = loc1 + 1;
-    loc3 = loc2 + 1;
-    loc4 = loc3 + 1;
-    loc5 = loc4 + 1;
-    loc6 = loc5 + 1;
-} else if (loc1 == 1) {
-    loc2 = loc1 + 1;
-    loc3 = loc2 + 1;
-    loc4 = loc3 + 1;
-    loc5 = loc4 + 1;
-    loc6 = loc5 - 5;
-} else if (loc1 == 2) {
-    loc2 = loc1 + 1;
-    loc3 = loc2 + 1;
-    loc4 = loc3 + 1;
-    loc5 = loc4 - 4;
-    loc6 = loc5 - 5;
-} else if (loc1 == 3) {
-    loc2 = loc1 + 1;
-    loc3 = loc2 + 1;
-    loc4 = loc3 - 3;
-    loc5 = loc4 - 1;
-    loc6 = loc5 - 1;
-} else if (loc1 == 4) {
-    loc2 = loc1 + 1;
-    loc3 = loc2 - 2;
-    loc4 = loc3 - 1;
-    loc5 = loc4 - 1;
-    loc6 = loc5 - 1;
-} else if (loc1 == 5) {
-    loc2 = loc1 - 1;
-    loc3 = loc2 - 1;
-    loc4 = loc3 - 1;
-    loc5 = loc4 - 1;
-    loc6 = loc5 - 1;
-}
-
-console.log(loc1);
-console.log(loc2);
-console.log(loc3);
-console.log(loc4);
-console.log(loc5);
-console.log(loc6);
-
-document.querySelector("#cat1").style.order = loc1;
-document.querySelector("#lion1").style.order = loc2;
-document.querySelector("#dog1").style.order = loc3;
-document.querySelector("#lion2").style.order = loc3;
-document.querySelector("#dog2").style.order = loc4;
-document.querySelector("#cat2").style.order = loc5;
-
-
-
-function show(x) {
-
-    if (lock == 1 || num == 1 && x.getAttribute("id") == picArea1.getAttribute("id")) {  /*Sempre que se clicar enquanto as 2 imagens estiverem visiveis ou for a mesma imagem, esse clique é cancelado.*/
-
-        return;
+/* jshint esversion: 6*/
+window.onload = function() {
+    
+    let images = document.querySelectorAll("#group1 > div");
+    for (let i = 0; i < images.length; i++) {
+        images[i].onclick = show;
     }
 
-    let picArea = x;
-    let pic = x.querySelector("img");
-    num++;
+};
+
+function show(objEvent) {
     
-    
+    let cardArea = objEvent.target;
+    let card = cardArea.querySelector("img");
+    //let cardNumbers = 1;
 
-    if (num === 1) {
+    if (card.classList.contains("hidded")) {
 
-        picArea1 = x;
-        pic1 = x.querySelector("img");
-        picArea1.style.backgroundColor = "#FFF";
-        pic1.style.visibility = "visible";
-        picClass = pic.getAttribute("class"); 
         
-        console.log(picClass);
-        
-    } else if (num === 2) {
-        
-        lock = 1;
-        pic2 = x.querySelector("img");
-        picArea2 = x;
-        picArea.style.backgroundColor = "#FFF";
-        pic.style.visibility = "visible";
-        picClass2 = pic.getAttribute("class"); 
-
-        console.log(picClass2);
+        card.classList.remove("hidded");
+        card.classList.add("makeVisible"); 
+        cardNumbers++;
     }
-    
-    setTimeout(function() {
-        
-        if (num === 2 && picClass !== picClass2) {
-            
-            picArea1.style.background = "#00F";
-            pic1.style.visibility = "hidden";
-            
-            picArea2.style.background = "#00F";
-            pic2.style.visibility = "hidden"; 
+    /*
+    if (cardNumbers === 2) {
 
-            num = 0;  
-            attempts.innerHTML++;
-            
-        } else if (num === 2 && picClass === picClass2) {
+        setTimeout(makeHidden, 3000, card);
 
-            score.innerHTML++;
-
-            picArea1.style.borderBottom = "3px solid #0F0";
-            picArea2.style.borderBottom = "3px solid #0F0";
-
-
-            if (pic1.style.visibility == "visible" || pic2.style.visibility == "visible") {
-
-                picArea1.removeAttribute("onclick");
-                picArea2.removeAttribute("onclick");
-            
-                num = 0;  
-                
-            }
-            console.log(score.innerHTML);
-            if (score.innerHTML == 3) {
-                res.innerHTML = "Congratulations! You finished the game in " + (parseInt(score.innerHTML) + parseInt(attempts.innerHTML)) + " attempts.";
-            }
-        
-        }
-        lock = 0;
-    }, 2000);
-    
-    
-    
+    }
+    */
     
 }
+function makeHidden(card) {
+
+    card.classList.remove("makeVisible");
+    card.classList.add("hidded");
+
+}
+// Think about another function to compare the choices 
