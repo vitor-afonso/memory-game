@@ -43,10 +43,23 @@ function show(objEvent) {
 
             if (card1Src === card2Src) {
 
-                console.log("Funcionou!");
+                document.querySelector("#scoreNum").innerHTML++;
+
+        
+                if (document.querySelector("#scoreNum").innerHTML == 3) {
+
+                    let message = document.querySelector("#winningResult");
+                    let totalScore =  document.querySelector("#scoreNum").innerHTML;
+                    let totalFailedAttempts = document.querySelector("#attemptNum").innerHTML;
+                    let totalResult = parseInt(totalScore) + parseInt(totalFailedAttempts);
+                    
+                    message.innerHTML = `Congratulations!! You won the game in ${totalResult} attempts.`;
+                }
                 
             } else {
+
                 setTimeout(makeHidden, 2000, card1, card2);
+                document.querySelector("#attemptNum").innerHTML++;
                 
             }
             cardCount = 0;
