@@ -1,12 +1,13 @@
 /* jshint esversion: 6*/
 
 window.onload = function() {
-    
+
     let images = document.querySelectorAll("#group1 > div");
     for (let i = 0; i < images.length; i++) {
         images[i].onclick = show;
+        images[i].style.order = Math.floor(Math.random() * 6);
+    
     }
-
 };
 
 let card1;
@@ -14,6 +15,7 @@ let card2;
 let card1Src;
 let card2Src;
 let cardCount = 0;
+
 
 function show(objEvent) {
     
@@ -50,7 +52,6 @@ function show(objEvent) {
             
             document.querySelector("#scoreNum").innerHTML++;
 
-        
             if (document.querySelector("#scoreNum").innerHTML == 3) {
 
                 let message = document.querySelector("#winningResult");
@@ -74,7 +75,6 @@ function show(objEvent) {
                 images[i].onclick = " ";
             }
             
-            
             setTimeout(makeHidden, 2000, card1, card2);
             document.querySelector("#attemptNum").innerHTML++;
             
@@ -96,7 +96,6 @@ function hideCard1(card1) {
     }
 }
 
-
 function makeHidden(card1, card2) {
 
     card1.classList.remove("makeVisible");
@@ -114,3 +113,4 @@ function makeHidden(card1, card2) {
 }
 
 // make it random the images every time
+// fix the style order number of each item to never repeat themselfs
