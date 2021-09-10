@@ -3,11 +3,23 @@
 window.onload = function() {
 
     let images = document.querySelectorAll("#group1 > div");
+    let imagesOrder = [];
     for (let i = 0; i < images.length; i++) {
         images[i].onclick = show;
         images[i].style.order = Math.floor(Math.random() * 6);
-    
     }
+
+    //Asures that no image have the same order number.
+    for (let i = 0; i < images.length; i++) {
+        
+        while(imagesOrder.indexOf(images[i].style.order) !== -1) {
+
+            images[i].style.order = Math.floor(Math.random() * 6);
+        }
+        // adds the order number of each image to the array so that we can log them after
+        imagesOrder.push(images[i].style.order);
+    } 
+    console.log(imagesOrder);
 };
 
 let card1;
@@ -65,6 +77,8 @@ function show(objEvent) {
                 for (let i = 0; i < images.length; i++) {
                     images[i].onclick = " ";
                 }
+                //reloads the page 5sec after finishing the game.
+                setTimeout(function() {window.location.reload();}, 5000);
             }
                 
         } else {
@@ -109,8 +123,4 @@ function makeHidden(card1, card2) {
     for (let i = 0; i < images.length; i++) {
         images[i].onclick = show;
     }
-
 }
-
-// make it random the images every time
-// fix the style order number of each item to never repeat themselfs

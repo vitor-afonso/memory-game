@@ -18,6 +18,8 @@ section #images {
     max-width: 500px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
     
 }
@@ -27,9 +29,9 @@ section #images {
 #images #group1 {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    min-width: 320px;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
     
 }
 #group1 .g-area {
@@ -43,18 +45,6 @@ section #images {
     visibility: hidden;
     height: 150px;
     width: 150px;
-}
-#group1 {
-    @media (max-width: 452px) {
-
-        #images #group1 {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-            min-width: 320px;
-            justify-content: center;
-        }
-    } 
 }
 
 
